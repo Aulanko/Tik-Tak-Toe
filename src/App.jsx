@@ -1,23 +1,61 @@
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
 
 import './App.css'
 
-function App() {
+function App()  {
   const [turn, setTurn] = useState('X')
+  const [XBoxes, setXBoxes] = useState([])
+  const [OBoxes, setOBoxes] = useState([])
+  const  [draw, setDraw] = useState(false)
+  const [winned, setWinned] = useState(false)
+  const  [XWins, setXWins] = useState(false)
+  const [OWins, setOWins] = useState(false)
 
-  
+  const whatToWin  = [
+    [1,2,3],[4,5,6],[7,8,9],
+    [1,4,7],[2,5,8],[3,6,9],
+    [1,5,9],[3,5,7]
+  ]
+
+
+
+  const checkWin =(playerMoves) =>{
+    return whatToWin.some(pattern =>
+      pattern.every(pos => playerMoves.includes(pos))
+    );
+    }
+
+  useEffect(()=>{
+    if(checkWin(XBoxes)){
+      setXWins(true)
+      setWinned(true)
+    } else if(checkWin(OBoxes)){
+      setOWins(true)
+      setWinned(true)
+    }
+  },[XBoxes, OBoxes])
 
   const handleClick = (e) =>{
-    if(e.target.innerText){
+    if(e.target.innerText || winned){
       return;
     }
+  
+  
+
 
     e.target.innerText=turn
+    const cellId = parseInt(e.target.id)
 
     if(turn=='X'){
+      setXBoxes([...XBoxes, cellId])
+      
       setTurn('O')
+      
     }
     if(turn=='O'){
+      setOBoxes([...OBoxes,  cellId])
+      
+      
       setTurn('X')
     }
   }
@@ -25,8 +63,20 @@ function App() {
   return (
     <>
       <div>
-        <h1>Tik-Tak-Toe</h1>
-        <h2>Netflify is working!</h2>
+        <h1>Tik-Tak-Toe!</h1>
+        
+         <h2>
+          {
+            XWins? "Winner: X":
+            OWins? "Winner: O":
+            draw? "It's a draw":
+            `Next player turn: ${turn}`
+
+          }
+      </h2>
+          
+      
+      
         <div className='board'>
           <button id="1" onClick={handleClick} className='cell'></button>
           <button id="2" onClick={handleClick} className='cell'></button>
