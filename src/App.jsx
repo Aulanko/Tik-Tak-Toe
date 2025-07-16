@@ -26,6 +26,7 @@ function App() {
     <>
       <div>
         <h1>Tik-Tak-Toe</h1>
+        <h2>Netflify is working!</h2>
         <div className='board'>
           <button id="1" onClick={handleClick} className='cell'></button>
           <button id="2" onClick={handleClick} className='cell'></button>
