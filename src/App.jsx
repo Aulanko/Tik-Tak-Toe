@@ -60,6 +60,18 @@ function App()  {
     }
   }
 
+  const handleReset = () =>{
+    setTurn('X')
+    setXBoxes([])
+    setOBoxes([])
+    setDraw(false)
+    setWinned(false)
+    setXWins(false)
+    setOWins(false)
+    const allBoxes = document.querySelectorAll(".cell")
+    allBoxes.forEach(box => box.innerText = '')
+  }
+
   return (
     <>
       <div>
@@ -91,6 +103,8 @@ function App()  {
           <button id="9" onClick={handleClick} className='cell'></button>
 
         </div>
+
+        <button id="reset-btn" onClick={handleReset}>Reset</button>
       </div>
     </>
   )
