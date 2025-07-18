@@ -111,7 +111,7 @@ function App()  {
 
         </div>
 
-        <button id="reset-btn" onClick={handleReset}>Reset</button>
+        <button className='reset-btn' id="reset-btn" onClick={handleReset}>Reset</button>
       </div>
     </>
   )
