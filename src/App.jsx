@@ -24,6 +24,10 @@ function App()  {
       pattern.every(pos => playerMoves.includes(pos))
     );
     }
+  
+  const checkDraw = () => {
+  return XBoxes.length + OBoxes.length === 9 && !winned
+}
 
   useEffect(()=>{
     if(checkWin(XBoxes)){
@@ -32,6 +36,9 @@ function App()  {
     } else if(checkWin(OBoxes)){
       setOWins(true)
       setWinned(true)
+    }
+    else if(checkDraw()){
+      setDraw(true)
     }
   },[XBoxes, OBoxes])
 
