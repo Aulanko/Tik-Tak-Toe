@@ -82,7 +82,7 @@ function App()  {
   return (
     <>
       <div>
-        <h1>Tik-Tak-Toe!</h1>
+        <h1>Tik-Tac-Toe!</h1>
         
          <h2>
           {
