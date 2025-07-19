@@ -55,12 +55,16 @@ function App()  {
 
     if(turn=='X'){
       setXBoxes([...XBoxes, cellId])
-      
+      e.target.style.color = '#213547'
+      e.target.style.backgroundColor = '#FF894F'
       setTurn('O')
       
     }
     if(turn=='O'){
       setOBoxes([...OBoxes,  cellId])
+      e.target.style.color ='white'
+      e.target.style.backgroundColor = '#34699A'
+      
       
       
       setTurn('X')
@@ -77,6 +81,7 @@ function App()  {
     setOWins(false)
     const allBoxes = document.querySelectorAll(".cell")
     allBoxes.forEach(box => box.innerText = '')
+    allBoxes.forEach(box => box.style.backgroundColor='')
   }
 
   return (
@@ -111,7 +116,13 @@ function App()  {
 
         </div>
 
-        <button className='reset-btn' id="reset-btn" onClick={handleReset}>Reset</button>
+        
+        <button className='reset-btn' id='reset-btn' onClick={handleReset}>
+          <span class="shadow"></span>
+          <span class="edge"></span>
+          <span class="front text"> Reset
+          </span>
+        </button>
       </div>
     </>
   )
