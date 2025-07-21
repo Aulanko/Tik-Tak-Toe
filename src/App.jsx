@@ -118,9 +118,9 @@ function App()  {
 
         
         <button className='reset-btn' id='reset-btn' onClick={handleReset}>
-          <span class="shadow"></span>
-          <span class="edge"></span>
-          <span class="front text"> Reset
+          <span className="shadow"></span>
+          <span className="edge"></span>
+          <span className="front text"> Reset
           </span>
         </button>
       </div>
