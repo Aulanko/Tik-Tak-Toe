@@ -29,3 +29,16 @@ test('The cell turns into X when clicked on first turn, and can not be clicked a
   expect(screen.getByText('Next player turn: O')).toBeInTheDocument();
 
 })
+
+test('O can make a move after X, and can leave the O mark on its click'), async()=>{
+  render(<App />)
+  const cells = screen.getAllByRole('button')
+  const firstCell = cells[0]
+  const secondCell = cells[0]
+  await userEvent.click(firstCell)
+  expect(screen.getByText('Next player turn: O')).toBeInTheDocument();
+  await userEvent.click(secondCell)
+  expect(secondCell).toHaveTextContent('O')
+  expect(screen.getByText('Next player turn: X')).toBeInTheDocument();
+}
+
