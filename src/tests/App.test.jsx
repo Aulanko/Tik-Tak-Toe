@@ -1,5 +1,5 @@
 import { render, screen } from '@testing-library/react'
-import { expect, test } from 'vitest' // not needed if globals:true
+import { expect, test } from 'vitest' 
 import userEvent from '@testing-library/user-event' 
 import App from '../App'
 import { redirect } from 'happy-dom/lib/PropertySymbol.js'
@@ -39,6 +39,7 @@ test('O can make a move after X, and can leave the O mark on its click'), async(
   expect(screen.getByText('Next player turn: O')).toBeInTheDocument();
   await userEvent.click(secondCell)
   expect(secondCell).toHaveTextContent('O')
+  expect(firstCell).toHaveTextContent('X')
   expect(screen.getByText('Next player turn: X')).toBeInTheDocument();
 }
 
