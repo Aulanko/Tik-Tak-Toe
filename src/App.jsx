@@ -10,6 +10,7 @@ function App()  {
   const [winned, setWinned] = useState(false)
   const  [XWins, setXWins] = useState(false)
   const [OWins, setOWins] = useState(false)
+  const [winningPattern, setWinningPattern] = useState([])
 
   const whatToWin  = [
     [1,2,3],[4,5,6],[7,8,9],
@@ -20,9 +21,16 @@ function App()  {
 
 
   const checkWin =(playerMoves) =>{
-    return whatToWin.some(pattern =>
+    const pattern = whatToWin.find(pattern =>
       pattern.every(pos => playerMoves.includes(pos))
     );
+    if(pattern){
+      setWinningPattern(pattern)
+      return true
+    }
+    else{
+      return false;
+    }
     }
   
   const checkDraw = () => {
@@ -84,6 +92,46 @@ function App()  {
     allBoxes.forEach(box => box.style.backgroundColor='')
   }
 
+  const renderWinLine =() =>{
+    if(!winningPattern.length){
+      return null;
+    }
+
+    const firstCell = document.getElementById(winningPattern[0]);
+    const lastCell = document.getElementById(winningPattern[winningPattern.length-1]);
+
+    const firstRect = firstCell.getBoundingClientRect();
+    const lastRect = lastCell.getBoundingClientRect();
+
+    const length = Math.sqrt(
+      Math.pow(lastRect.left-firstRect.left,2) + 
+      Math.pow(lastRect.top - firstRect.top,2) 
+      
+    );
+
+    const angle = Math.atan2(
+      lastRect.top -firstRect.top,
+      lastRect.left - firstRect.left
+    ) *180/Math.PI;
+
+    const left = firstRect.left + firstRect.width/2;
+    const top = firstRect.top + firstRect.height/2;
+
+    return (
+    <div 
+      className="win-line"
+      style={{
+        '--angle': `${angle}deg`,
+        left: `${left}px`,
+        top: `${top}px`,
+        width: `${length}px`,
+      }}
+    />
+  );
+
+
+  }
+
   return (
     <>
       <div>
@@ -113,6 +161,8 @@ function App()  {
           <button id="7" onClick={handleClick} className='cell'></button>
           <button id="8" onClick={handleClick} className='cell'></button>
           <button id="9" onClick={handleClick} className='cell'></button>
+
+          {winned&& renderWinLine()}
 
         </div>
 

@@ -106,3 +106,22 @@
 .reset-btn:focus:not(:focus-visible) {
  outline: none;
 }
+
+
+@keyframes drawLine {
+  from {
+    transform: rotate(var(--angle)) scaleX(0);
+  }
+  to {
+    transform: rotate(var(--angle)) scaleX(1);
+  }
+}
+
+.win-line {
+  transform-origin: left center;
+  background-color: white;
+  height: 6px;
+  position: absolute;
+  z-index: 10;
+  animation: drawLine 0.8s ease-out forwards;
+}
