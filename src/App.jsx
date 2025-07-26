@@ -99,31 +99,37 @@ function App()  {
 
     const firstCell = document.getElementById(winningPattern[0]);
     const lastCell = document.getElementById(winningPattern[winningPattern.length-1]);
+    const board = document.querySelector('.board')
 
     const firstRect = firstCell.getBoundingClientRect();
     const lastRect = lastCell.getBoundingClientRect();
+    const boardRect = board.getBoundingClientRect();
+
+    const firstX = firstRect.left-boardRect.left + firstRect.width/2;
+    const firstY = firstRect.top-boardRect.top + firstRect.height/2;
+    const lastX = lastRect.left -boardRect.left + lastRect.width/2;
+    const lastY = lastRect.top - boardRect.top + lastRect.height/2;
 
     const length = Math.sqrt(
-      Math.pow(lastRect.left-firstRect.left,2) + 
-      Math.pow(lastRect.top - firstRect.top,2) 
+      Math.pow(lastX - firstX,2) + 
+      Math.pow(lastY - firstY,2) 
       
     );
 
     const angle = Math.atan2(
-      lastRect.top -firstRect.top,
-      lastRect.left - firstRect.left
+      lastY - firstY,
+      lastX - firstX
     ) *180/Math.PI;
 
-    const left = firstRect.left + firstRect.width/2;
-    const top = firstRect.top + firstRect.height/2;
+   
 
     return (
     <div 
       className="win-line"
       style={{
         '--angle': `${angle}deg`,
-        left: `${left}px`,
-        top: `${top}px`,
+        left: `${firstX}px`,
+        top: `${firstY}px`,
         width: `${length}px`,
       }}
     />
