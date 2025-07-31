@@ -44,3 +44,16 @@ h1{
 .center-buttons button:hover{
   background-color: #ddd;
 }
+
+.versus-modal{
+  position: absolute;
+  z-index: 2;
+}
+
+.close-modal {
+  color: white;
+  float: right;
+  font-size: 28px;
+  font-weight: bold;
+  cursor: grab;
+}
