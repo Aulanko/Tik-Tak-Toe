@@ -37,23 +37,18 @@ const Start =  () =>{
                     Choose your game
                 </h1>
                 <div className='game-select-container'>
-                    <div className='vshuman-container'>
-                        <h1>Human</h1>
-                        <div className='versus-img-container'>
-                            <img src={vsHumanGif} alt="" />
-                        </div>
+                  
                         <Link to='/app'>
-                            <button>Play against a friend</button>
+                            <button className="gif-button" style={{ backgroundImage: `url(${vsHumanGif})` }}>
+                                Play against a friend
+                            </button>
                         </Link>
-                        
-                    </div>
-                    <div className='vsai-container'>
-                        <h1>AI</h1>
-                        <div className='versus-img-container'>
-                            <img src={vsAIGif} alt="" />
-                        </div>
-                        <button>Play against AI</button>
-                    </div>
+                
+                        <button className="gif-button" style={{ backgroundImage: `url(${vsAIGif})` }}>
+                            Play against AI
+                        </button>
+
+                   
                 </div>
                 
                 
