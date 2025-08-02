@@ -43,10 +43,14 @@ const Start =  () =>{
                                 Play against a friend
                             </button>
                         </Link>
-                
-                        <button className="gif-button" style={{ backgroundImage: `url(${vsAIGif})` }}>
-                            Play against AI
-                        </button>
+
+                        <Link to='/bot_easy'>
+                            <button className="gif-button" style={{ backgroundImage: `url(${vsAIGif})` }}>
+                                Play against AI
+                            </button>
+
+                        </Link>
+                        
 
                    
                 </div>

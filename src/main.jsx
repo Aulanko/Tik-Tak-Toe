@@ -5,6 +5,7 @@ import {BrowserRouter, Routes, Route} from 'react-router-dom'
 import './index.css'
 import App from './App.jsx'
 import Start from './start screen/start.jsx'
+import Bot_easy from './bots/Bot_easy.jsx'
 
 createRoot(document.getElementById('root')).render(
   <StrictMode>
@@ -12,6 +13,7 @@ createRoot(document.getElementById('root')).render(
       <Routes>
         <Route path='/' element={<Start />} />
         <Route path='/app' element={<App />} />
+        <Route path='bot_easy' element={<Bot_easy />} />
         <Route path="*" element={<h1>Page Not Found</h1>} />
       </Routes>
     </BrowserRouter>

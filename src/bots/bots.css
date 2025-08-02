@@ -1,0 +1,131 @@
+#root {
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 2rem;
+  text-align: center;
+  align-items: center;
+}
+
+
+.board{
+  position: relative;
+  display: grid;
+  grid-template-columns: repeat(3, 100px);
+  grid-template-rows: repeat(3, 100px);
+  gap: 5px;
+  align-self: center;
+  justify-content: center;
+}
+
+
+
+/* From Uiverse.io by cssbuttons-io */ 
+.reset-btn {
+ margin-top: 10%;
+ position: relative;
+ border: none;
+ background: transparent;
+ padding: 0;
+ cursor: pointer;
+ outline-offset: 4px;
+ transition: filter 250ms;
+ user-select: none;
+ touch-action: manipulation;
+}
+
+.shadow {
+ position: absolute;
+ top: 0;
+ left: 0;
+ width: 100%;
+ height: 100%;
+ border-radius: 12px;
+ background: hsl(0deg 0% 0% / 0.25);
+ will-change: transform;
+ transform: translateY(2px);
+ transition: transform
+    600ms
+    cubic-bezier(.3, .7, .4, 1);
+}
+
+.edge {
+ position: absolute;
+ top: 0;
+ left: 0;
+ width: 100%;
+ height: 100%;
+ border-radius: 12px;
+ background: linear-gradient(
+    to left,
+    hsl(340deg 100% 16%) 0%,
+    hsl(340deg 100% 32%) 8%,
+    hsl(340deg 100% 32%) 92%,
+    hsl(340deg 100% 16%) 100%
+  );
+}
+
+.front {
+ display: block;
+ position: relative;
+ padding: 12px 27px;
+ border-radius: 12px;
+ font-size: 1.1rem;
+ color: white;
+ background: hsl(345deg 100% 47%);
+ will-change: transform;
+ transform: translateY(-4px);
+ transition: transform
+    600ms
+    cubic-bezier(.3, .7, .4, 1);
+}
+
+.reset-btn:hover {
+ filter: brightness(110%);
+}
+
+.reset-btn:hover .front {
+ transform: translateY(-6px);
+ transition: transform
+    250ms
+    cubic-bezier(.3, .7, .4, 1.5);
+}
+
+.reset-btn:active .front {
+ transform: translateY(-2px);
+ transition: transform 34ms;
+}
+
+.reset-btn:hover .shadow {
+ transform: translateY(4px);
+ transition: transform
+    250ms
+    cubic-bezier(.3, .7, .4, 1.5);
+}
+
+.reset-btn:active .shadow {
+ transform: translateY(1px);
+ transition: transform 34ms;
+}
+
+.reset-btn:focus:not(:focus-visible) {
+ outline: none;
+}
+
+
+@keyframes drawLine {
+  from {
+    transform: rotate(var(--angle)) scaleX(0);
+  }
+  to {
+    transform: rotate(var(--angle)) scaleX(1);
+  }
+}
+
+.win-line {
+  transform-origin: left center;
+  background-color: white;
+  height: 6px;
+  position: absolute;
+  z-index: 10;
+  animation: drawLine 0.8s ease-out forwards;
+}
