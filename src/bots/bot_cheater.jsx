@@ -183,7 +183,7 @@ function Bot_cheater()  {
   return (
     <>
       <div>
-        <h1>Tik-Tac-Toe against AI!</h1>
+        <h1>Tik-Tac-Toe against AI that cheats!</h1>
         
          <h2>
           {

@@ -4,7 +4,9 @@ import './start.css'
 import image from '../assets/image.png';
 import { useState } from 'react';
 import vsHumanGif from '../assets/giphy_tiktak.gif'
-import vsAIGif from '../assets/giphy_vs_ai.gif'
+import vsEasyAIGif from '../assets/giphy_easy_ai.gif'
+import vsCheaterGif from '../assets/giphy_cheater_ai.gif'
+
 
 <img src={image} alt="..." />
 
@@ -38,21 +40,25 @@ const Start =  () =>{
                 </h1>
                 <div className='game-select-container'>
                   
-                        <Link to='/app'>
-                            <button className="gif-button" style={{ backgroundImage: `url(${vsHumanGif})` }}>
-                                Play against a friend
-                            </button>
-                        </Link>
+                    <Link to='/app'>
+                        <button className="gif-button" style={{ backgroundImage: `url(${vsHumanGif})` }}>
+                            Play against a friend
+                        </button>
+                    </Link>
 
-                        <Link to='/bot_easy'>
-                            <button className="gif-button" style={{ backgroundImage: `url(${vsAIGif})` }}>
-                                Play against AI
-                            </button>
+                    <Link to='/bot_easy'>
+                        <button className="gif-button" style={{ backgroundImage: `url(${vsEasyAIGif})` }}>
+                            Play against AI
+                        </button>
 
-                        </Link>
+                    </Link>
+
+                    <Link to='bot_cheater'>
+                        <button className='gif-button' style={{backgroundImage: `url(${vsCheaterGif})`}}>
+                            Play against a cheater
+                        </button>
+                    </Link>
                         
-
-                   
                 </div>
                 
                 
