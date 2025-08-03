@@ -2,7 +2,7 @@ import { useEffect, useState } from 'react'
 
 import './bots.css'
 
-function Bot_easy()  {
+function Bot_cheater()  {
   const [turn, setTurn] = useState('X')
   const [XBoxes, setXBoxes] = useState([])
   const [OBoxes, setOBoxes] = useState([])
@@ -52,7 +52,7 @@ function Bot_easy()  {
 
   useEffect(()=>{
 
-      if(turn==='O'&&!winned&&!draw){
+      if(turn==='O'&&!winned||!draw){
         const timeout = setTimeout(()=>{
           AImoves()
         }, 300
@@ -226,4 +226,4 @@ function Bot_easy()  {
   )
 }
 
-export default Bot_easy
+export default Bot_cheater
