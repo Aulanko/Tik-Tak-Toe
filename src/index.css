@@ -29,6 +29,10 @@ body {
   min-width: 320px;
   min-height: 100vh;
   background-color: #77BEF0;
+  background-image: url('./assets/castle.png');
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: top;
 }
 
 h1 {

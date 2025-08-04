@@ -1,7 +1,7 @@
 import { Link } from 'react-router-dom';
 
 import './start.css'
-import image from '../assets/image.png';
+import image from '../assets/trees.png';
 import { useState } from 'react';
 import vsHumanGif from '../assets/giphy_tiktak.gif'
 import vsEasyAIGif from '../assets/giphy_easy_ai.gif'
