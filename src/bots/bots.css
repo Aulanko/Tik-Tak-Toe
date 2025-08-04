@@ -6,6 +6,14 @@
   align-items: center;
 }
 
+body{
+  
+  background-image: url('../assets/castle.png');
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: top;
+}
+
 
 .board{
   position: relative;
