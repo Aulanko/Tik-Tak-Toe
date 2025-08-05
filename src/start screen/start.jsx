@@ -69,7 +69,7 @@ const Start =  () =>{
                     <button onClick={handleClick}>Play</button>
                
                 
-                <button>Settings</button>
+                
             </div>    
         }
 
